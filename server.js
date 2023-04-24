@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,'client','src', 'build' )));
 
 // Serve the index.html file from the food-services directory
-app.get('/food-servies', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'client','src','build','index.html'));
 });
 app.use("/api/v1/auth", authRoutes);
@@ -33,9 +33,9 @@ app.use("/api/v1/tablebook", tableRoute);
 
 connectDB();
 
-app.get('/', (req,res)=>{
-    res.send("<h1>Hello </h1>")
-})
+// app.get('/', (req,res)=>{
+//     res.send("<h1>Hello </h1>")
+// })
 
 const PORT =process.env.PORT||8080;
 
